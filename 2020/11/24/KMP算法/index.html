@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>KMP算法 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="理解kmp算法如何去理解k &#x3D; next[k]">
+<meta property="og:type" content="article">
+<meta property="og:title" content="KMP算法">
+<meta property="og:url" content="http://example.com/2020/11/24/KMP%E7%AE%97%E6%B3%95/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="理解kmp算法如何去理解k &#x3D; next[k]">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2020/11/24/KMP%E7%AE%97%E6%B3%95/KMP%E7%AE%97%E6%B3%95/1.png">
+<meta property="og:image" content="http://example.com/2020/11/24/KMP%E7%AE%97%E6%B3%95/KMP%E7%AE%97%E6%B3%95/2.png">
+<meta property="article:published_time" content="2020-11-24T11:46:41.000Z">
+<meta property="article:modified_time" content="2020-12-12T02:26:33.929Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="C++">
+<meta property="article:tag" content="数据结构">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2020/11/24/KMP%E7%AE%97%E6%B3%95/KMP%E7%AE%97%E6%B3%95/1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-KMP算法" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/11/24/KMP%E7%AE%97%E6%B3%95/" class="article-date">
+  <time class="dt-published" datetime="2020-11-24T11:46:41.000Z" itemprop="datePublished">2020-11-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      KMP算法
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>理解kmp算法<br>如何去理解k = next[k]</p>
+<span id="more"></span>
+<h2 id="手撕代码"><a href="#手撕代码" class="headerlink" title="手撕代码"></a>手撕代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getNext</span><span class="params">(<span class="keyword">int</span> []next,<span class="built_in">string</span> s)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> k = <span class="number">-1</span>, j = <span class="number">0</span>;</span><br><span class="line">    next[<span class="number">0</span>] = <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">while</span>(j &lt; s.size())&#123;</span><br><span class="line">        <span class="keyword">if</span>(k == <span class="number">-1</span> || s[j] == s[k])&#123;</span><br><span class="line">            j++;</span><br><span class="line">            k++;</span><br><span class="line">            <span class="keyword">if</span>(s[j] == s[k])&#123;  </span><br><span class="line">                next[j] = next[k];</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                next[j] = k;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;eles&#123;</span><br><span class="line">            k = next[k];  <span class="comment">//如何去理解这个呢</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="如何理解k-next-k"><a href="#如何理解k-next-k" class="headerlink" title="如何理解k = next[k]?"></a>如何理解k = next[k]?</h2><p><img src="KMP%E7%AE%97%E6%B3%95/1.png"><br>按照我的想法应该是这样的</p>
+<ul>
+<li>k = next[k] 其实就是一种回退，如果没有找到相应的前缀，使得在s[i]~s[j]之间的字符串，字符串的前缀和后缀是否有相同之处，然后再赋值给next数组<br><img src="KMP%E7%AE%97%E6%B3%95/2.png"><br>这个照片讲的比之前很详细，如果是按照上图这张解释，就可以理解为什么 k = next[k];</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/11/24/KMP%E7%AE%97%E6%B3%95/" data-id="cklovdmcq0009c4otgrjn8iur" data-title="KMP算法" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/11/24/C-%E9%9D%A2%E8%AF%95%E5%B0%8F%E9%A2%98/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          C++面试小题(一)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/11/20/Unorder-Map/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">map和unordered_map的区别</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/2020/" rel="tag">2020</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/androidstudio/" rel="tag">androidstudio</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/flask/" rel="tag">flask</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%8F%E9%94%8B%E5%B9%B4%E5%BA%A6%E6%8A%A5%E5%91%8A/" rel="tag">小锋年度报告</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%8F%E9%A1%B9%E7%9B%AE/" rel="tag">小项目</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%80%E5%8F%91%E7%99%BB%E5%BD%95%E7%95%8C%E9%9D%A2/" rel="tag">开发登录界面</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%8Cleetcode/" rel="tag">数据结构，leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AF%95/" rel="tag">笔试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9A%8F%E7%AC%94/" rel="tag">随笔</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AF%95/" rel="tag">面试笔试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE/" rel="tag">项目</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/2020/" style="font-size: 10px;">2020</a> <a href="/tags/C/" style="font-size: 20px;">C++</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/androidstudio/" style="font-size: 10px;">androidstudio</a> <a href="/tags/flask/" style="font-size: 10px;">flask</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/leetcode/" style="font-size: 12.5px;">leetcode</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/python/" style="font-size: 12.5px;">python</a> <a href="/tags/%E5%B0%8F%E9%94%8B%E5%B9%B4%E5%BA%A6%E6%8A%A5%E5%91%8A/" style="font-size: 10px;">小锋年度报告</a> <a href="/tags/%E5%B0%8F%E9%A1%B9%E7%9B%AE/" style="font-size: 12.5px;">小项目</a> <a href="/tags/%E5%BC%80%E5%8F%91%E7%99%BB%E5%BD%95%E7%95%8C%E9%9D%A2/" style="font-size: 10px;">开发登录界面</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">操作系统</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 17.5px;">数据结构</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%8Cleetcode/" style="font-size: 10px;">数据结构，leetcode</a> <a href="/tags/%E7%AC%94%E8%AF%95/" style="font-size: 15px;">笔试</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 15px;">计算机网络</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 10px;">随笔</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 10px;">面试</a> <a href="/tags/%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AF%95/" style="font-size: 10px;">面试笔试</a> <a href="/tags/%E9%A1%B9%E7%9B%AE/" style="font-size: 10px;">项目</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/02/28/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/27/%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AF%950227/">笔试0227</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/26/Linux/">Linux教程</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/26/git/">Git教程</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/25/%E9%9D%A2%E7%BB%8F0225/">面经0225</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

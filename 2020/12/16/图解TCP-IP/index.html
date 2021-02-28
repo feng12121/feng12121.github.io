@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>图解TCP/IP | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="选取图解TCP&#x2F;IP这本书，是因为能够快速入门，不需要死记硬背">
+<meta property="og:type" content="article">
+<meta property="og:title" content="图解TCP&#x2F;IP">
+<meta property="og:url" content="http://example.com/2020/12/16/%E5%9B%BE%E8%A7%A3TCP-IP/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="选取图解TCP&#x2F;IP这本书，是因为能够快速入门，不需要死记硬背">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2020/12/16/%E5%9B%BE%E8%A7%A3TCP-IP/%E5%9B%BE%E8%A7%A3TCP-IP/1.png">
+<meta property="og:image" content="http://example.com/2020/12/16/%E5%9B%BE%E8%A7%A3TCP-IP/%E5%9B%BE%E8%A7%A3TCP-IP/2.png">
+<meta property="og:image" content="http://example.com/2020/12/16/%E5%9B%BE%E8%A7%A3TCP-IP/%E5%9B%BE%E8%A7%A3TCP-IP/3.png">
+<meta property="og:image" content="http://example.com/2020/12/16/%E5%9B%BE%E8%A7%A3TCP-IP/%E5%9B%BE%E8%A7%A3TCP-IP/4.png">
+<meta property="og:image" content="http://example.com/2020/12/16/%E5%9B%BE%E8%A7%A3TCP-IP/%E5%9B%BE%E8%A7%A3TCP-IP/5.png">
+<meta property="og:image" content="http://example.com/2020/12/16/%E5%9B%BE%E8%A7%A3TCP-IP/%E5%9B%BE%E8%A7%A3TCP-IP/6.png">
+<meta property="og:image" content="http://example.com/2020/12/16/%E5%9B%BE%E8%A7%A3TCP-IP/%E5%9B%BE%E8%A7%A3TCP-IP/7.png">
+<meta property="og:image" content="http://example.com/2020/12/16/%E5%9B%BE%E8%A7%A3TCP-IP/%E5%9B%BE%E8%A7%A3TCP-IP/8.png">
+<meta property="og:image" content="http://example.com/2020/12/16/%E5%9B%BE%E8%A7%A3TCP-IP/%E5%9B%BE%E8%A7%A3TCP-IP/9.png">
+<meta property="og:image" content="http://example.com/2020/12/16/%E5%9B%BE%E8%A7%A3TCP-IP/%E5%9B%BE%E8%A7%A3TCP-IP/10.png">
+<meta property="og:image" content="http://example.com/2020/12/16/%E5%9B%BE%E8%A7%A3TCP-IP/%E5%9B%BE%E8%A7%A3TCP-IP/11.png">
+<meta property="og:image" content="http://example.com/2020/12/16/%E5%9B%BE%E8%A7%A3TCP-IP/%E5%9B%BE%E8%A7%A3TCP-IP/12.png">
+<meta property="og:image" content="http://example.com/2020/12/16/%E5%9B%BE%E8%A7%A3TCP-IP/%E5%9B%BE%E8%A7%A3TCP-IP/13.png">
+<meta property="og:image" content="http://example.com/2020/12/16/%E5%9B%BE%E8%A7%A3TCP-IP/%E5%9B%BE%E8%A7%A3TCP-IP/14.png">
+<meta property="og:image" content="http://example.com/2020/12/16/%E5%9B%BE%E8%A7%A3TCP-IP/%E5%9B%BE%E8%A7%A3TCP-IP/15.png">
+<meta property="og:image" content="http://example.com/2020/12/16/%E5%9B%BE%E8%A7%A3TCP-IP/%E5%9B%BE%E8%A7%A3TCP-IP/16.png">
+<meta property="article:published_time" content="2020-12-16T15:23:54.000Z">
+<meta property="article:modified_time" content="2021-01-08T11:59:26.579Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="计算机网络">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2020/12/16/%E5%9B%BE%E8%A7%A3TCP-IP/%E5%9B%BE%E8%A7%A3TCP-IP/1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-图解TCP-IP" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/12/16/%E5%9B%BE%E8%A7%A3TCP-IP/" class="article-date">
+  <time class="dt-published" datetime="2020-12-16T15:23:54.000Z" itemprop="datePublished">2020-12-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      图解TCP/IP
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>选取图解TCP/IP这本书，是因为能够快速入门，不需要死记硬背</p>
+<span id="more"></span>
+<h2 id="OSI参考模型中各个分层的作用"><a href="#OSI参考模型中各个分层的作用" class="headerlink" title="OSI参考模型中各个分层的作用"></a>OSI参考模型中各个分层的作用</h2><p><img src="%E5%9B%BE%E8%A7%A3TCP-IP/1.png"></p>
+<h2 id="网络设备"><a href="#网络设备" class="headerlink" title="网络设备"></a>网络设备</h2><p><img src="%E5%9B%BE%E8%A7%A3TCP-IP/2.png"></p>
+<ul>
+<li>网卡：用来连接互联网</li>
+<li>中继器：是对减弱的信号进行放大和发送的设备；无法改变传输速度</li>
+<li>网桥：数据链路层面上连接两个网络的设备；根据（物理地址）数据帧的内容转发数据给相邻的其他网络</li>
+<li>路由器：连接网络与网络的设备，并对分组报文进行转发的设备（IP地址）</li>
+<li>4~7层交换机：是以TCP等协议的传输层及其上面的应用层为基础，分析收发数据，并对其进行特定的处理</li>
+<li>网关：负责协议的转换与数据的转发</li>
+</ul>
+<h2 id="共享介质型网络与非共享介质型网络"><a href="#共享介质型网络与非共享介质型网络" class="headerlink" title="共享介质型网络与非共享介质型网络"></a>共享介质型网络与非共享介质型网络</h2><h3 id="共享介质型网络"><a href="#共享介质型网络" class="headerlink" title="共享介质型网络"></a>共享介质型网络</h3><h4 id="争用方式：是指争夺数据传输的权利，也就奥CSMA（载波监听多路访问），令网络中的各个站采用先到先得的方式占用信道发送数据"><a href="#争用方式：是指争夺数据传输的权利，也就奥CSMA（载波监听多路访问），令网络中的各个站采用先到先得的方式占用信道发送数据" class="headerlink" title="争用方式：是指争夺数据传输的权利，也就奥CSMA（载波监听多路访问），令网络中的各个站采用先到先得的方式占用信道发送数据"></a>争用方式：是指争夺数据传输的权利，也就奥CSMA（载波监听多路访问），令网络中的各个站采用先到先得的方式占用信道发送数据</h4><p><img src="%E5%9B%BE%E8%A7%A3TCP-IP/3.png"><br>改良CSMA的另一种方式——CSMA/CD<br><img src="%E5%9B%BE%E8%A7%A3TCP-IP/4.png"></p>
+<h4 id="令牌传递方式：是沿着令牌环发送一种叫做“令牌”的特殊报文；这种方式有两个特点：一是不会有冲突，二是每个站都有通过平等循环获得令牌的机会"><a href="#令牌传递方式：是沿着令牌环发送一种叫做“令牌”的特殊报文；这种方式有两个特点：一是不会有冲突，二是每个站都有通过平等循环获得令牌的机会" class="headerlink" title="令牌传递方式：是沿着令牌环发送一种叫做“令牌”的特殊报文；这种方式有两个特点：一是不会有冲突，二是每个站都有通过平等循环获得令牌的机会"></a>令牌传递方式：是沿着令牌环发送一种叫做“令牌”的特殊报文；这种方式有两个特点：一是不会有冲突，二是每个站都有通过平等循环获得令牌的机会</h4><p><img src="%E5%9B%BE%E8%A7%A3TCP-IP/5.png"></p>
+<h3 id="非共享介质型网络-是指不共享介质，是对介质采取专用的一种传输控制方式；网络中的每一个站直连交换机，由交换机负责转发数据帧。在这种情况下采用全双工通信方式"><a href="#非共享介质型网络-是指不共享介质，是对介质采取专用的一种传输控制方式；网络中的每一个站直连交换机，由交换机负责转发数据帧。在这种情况下采用全双工通信方式" class="headerlink" title="非共享介质型网络: 是指不共享介质，是对介质采取专用的一种传输控制方式；网络中的每一个站直连交换机，由交换机负责转发数据帧。在这种情况下采用全双工通信方式"></a>非共享介质型网络: 是指不共享介质，是对介质采取专用的一种传输控制方式；网络中的每一个站直连交换机，由交换机负责转发数据帧。在这种情况下采用全双工通信方式</h3><p><img src="%E5%9B%BE%E8%A7%A3TCP-IP/6.png"></p>
+<h2 id="IP"><a href="#IP" class="headerlink" title="IP"></a>IP</h2><h3 id="为什么IP要采用面向无连接"><a href="#为什么IP要采用面向无连接" class="headerlink" title="为什么IP要采用面向无连接"></a>为什么IP要采用面向无连接</h3><ul>
+<li>一是为了简化</li>
+<li>二是为了提速<br>IP负责将数据发送给目标主机，那么TCP则负责保证对端主机确实收到数据。<h3 id="IP地址的分类"><a href="#IP地址的分类" class="headerlink" title="IP地址的分类"></a>IP地址的分类</h3><img src="%E5%9B%BE%E8%A7%A3TCP-IP/7.png"><br><img src="%E5%9B%BE%E8%A7%A3TCP-IP/8.png"></li>
+</ul>
+<h2 id="单播、广播和多播"><a href="#单播、广播和多播" class="headerlink" title="单播、广播和多播"></a>单播、广播和多播</h2><p><img src="%E5%9B%BE%E8%A7%A3TCP-IP/9.png"></p>
+<h2 id="IPV4首部"><a href="#IPV4首部" class="headerlink" title="IPV4首部"></a>IPV4首部</h2><p><img src="%E5%9B%BE%E8%A7%A3TCP-IP/10.png"></p>
+<h3 id="版本"><a href="#版本" class="headerlink" title="版本"></a>版本</h3><p>由4比特构成，表示标识IP首部的版本号。<br><img src="%E5%9B%BE%E8%A7%A3TCP-IP/11.png"></p>
+<h3 id="首部长度"><a href="#首部长度" class="headerlink" title="首部长度"></a>首部长度</h3><p>由4比特构成，表示IP首部的大小</p>
+<h3 id="区分服务"><a href="#区分服务" class="headerlink" title="区分服务"></a>区分服务</h3><p>由8比特构成，用来表明服务质量<br><img src="%E5%9B%BE%E8%A7%A3TCP-IP/12.png"></p>
+<h3 id="DSCP段与ECN段"><a href="#DSCP段与ECN段" class="headerlink" title="DSCP段与ECN段"></a>DSCP段与ECN段</h3><p><img src="%E5%9B%BE%E8%A7%A3TCP-IP/13.png"></p>
+<h2 id="IPV6首部格式"><a href="#IPV6首部格式" class="headerlink" title="IPV6首部格式"></a>IPV6首部格式</h2><p><img src="%E5%9B%BE%E8%A7%A3TCP-IP/14.png"></p>
+<h2 id="APR的工作机制"><a href="#APR的工作机制" class="headerlink" title="APR的工作机制"></a>APR的工作机制</h2><p><img src="%E5%9B%BE%E8%A7%A3TCP-IP/15.png"></p>
+<h2 id="TCP的特点及其目的"><a href="#TCP的特点及其目的" class="headerlink" title="TCP的特点及其目的"></a>TCP的特点及其目的</h2><ul>
+<li>通过序列号与确定应答提高可靠性。超出特定的时间间隔中，如果没有收到确定应答，会选择重发。是因为丢包或者是确定应答延迟到达</li>
+</ul>
+<p><img src="%E5%9B%BE%E8%A7%A3TCP-IP/16.png"></p>
+<ul>
+<li><p>重发超时计算既要考虑往返时间又要考虑偏差是有其原因的，重发超时都是0.5秒的整数倍，重发次数到达一定次数也会停止发送。</p>
+</li>
+<li><p>窗口控制和重发控制：确认应答未能返回的情况，某些确认应答即使丢失也无需重发。某个报文段丢失的情况，接收主机如果收到一个自己应该接收的序号以外的数据时，会针对当前为止收到数据返回确定应答。</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/12/16/%E5%9B%BE%E8%A7%A3TCP-IP/" data-id="cklovdmde000wc4othewc6px0" data-title="图解TCP/IP" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/12/26/%E7%AC%94%E8%AF%95%E7%9B%98%E7%82%B9/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          笔试盘点
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/12/07/%E5%9B%BE%E8%A7%A3HTTP/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">图解HTTP</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/2020/" rel="tag">2020</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/androidstudio/" rel="tag">androidstudio</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/flask/" rel="tag">flask</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%8F%E9%94%8B%E5%B9%B4%E5%BA%A6%E6%8A%A5%E5%91%8A/" rel="tag">小锋年度报告</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%8F%E9%A1%B9%E7%9B%AE/" rel="tag">小项目</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%80%E5%8F%91%E7%99%BB%E5%BD%95%E7%95%8C%E9%9D%A2/" rel="tag">开发登录界面</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%8Cleetcode/" rel="tag">数据结构，leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AF%95/" rel="tag">笔试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9A%8F%E7%AC%94/" rel="tag">随笔</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AF%95/" rel="tag">面试笔试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE/" rel="tag">项目</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/2020/" style="font-size: 10px;">2020</a> <a href="/tags/C/" style="font-size: 20px;">C++</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/androidstudio/" style="font-size: 10px;">androidstudio</a> <a href="/tags/flask/" style="font-size: 10px;">flask</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/leetcode/" style="font-size: 12.5px;">leetcode</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/python/" style="font-size: 12.5px;">python</a> <a href="/tags/%E5%B0%8F%E9%94%8B%E5%B9%B4%E5%BA%A6%E6%8A%A5%E5%91%8A/" style="font-size: 10px;">小锋年度报告</a> <a href="/tags/%E5%B0%8F%E9%A1%B9%E7%9B%AE/" style="font-size: 12.5px;">小项目</a> <a href="/tags/%E5%BC%80%E5%8F%91%E7%99%BB%E5%BD%95%E7%95%8C%E9%9D%A2/" style="font-size: 10px;">开发登录界面</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">操作系统</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 17.5px;">数据结构</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%8Cleetcode/" style="font-size: 10px;">数据结构，leetcode</a> <a href="/tags/%E7%AC%94%E8%AF%95/" style="font-size: 15px;">笔试</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 15px;">计算机网络</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 10px;">随笔</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 10px;">面试</a> <a href="/tags/%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AF%95/" style="font-size: 10px;">面试笔试</a> <a href="/tags/%E9%A1%B9%E7%9B%AE/" style="font-size: 10px;">项目</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/02/28/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/27/%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AF%950227/">笔试0227</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/26/Linux/">Linux教程</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/26/git/">Git教程</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/25/%E9%9D%A2%E7%BB%8F0225/">面经0225</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

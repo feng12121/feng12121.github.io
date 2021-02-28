@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>图论 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="系统性去总结图论的知识点，有关于邻接矩阵等多方面知识点，有利于我巩固专业课上的知识点，也是自己认真去了解各项学习任务的进度。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="图论">
+<meta property="og:url" content="http://example.com/2020/11/25/%E5%9B%BE%E8%AE%BA/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="系统性去总结图论的知识点，有关于邻接矩阵等多方面知识点，有利于我巩固专业课上的知识点，也是自己认真去了解各项学习任务的进度。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2020/11/25/%E5%9B%BE%E8%AE%BA/%E5%9B%BE%E8%AE%BA/1.png">
+<meta property="og:image" content="http://example.com/2020/11/25/%E5%9B%BE%E8%AE%BA/%E5%9B%BE%E8%AE%BA/2.png">
+<meta property="og:image" content="http://example.com/2020/11/25/%E5%9B%BE%E8%AE%BA/%E5%9B%BE%E8%AE%BA/3.png">
+<meta property="og:image" content="http://example.com/2020/11/25/%E5%9B%BE%E8%AE%BA/%E5%9B%BE%E8%AE%BA/4.png">
+<meta property="og:image" content="http://example.com/2020/11/25/%E5%9B%BE%E8%AE%BA/%E5%9B%BE%E8%AE%BA/5.png">
+<meta property="og:image" content="http://example.com/2020/11/25/%E5%9B%BE%E8%AE%BA/%E5%9B%BE%E8%AE%BA/6.png">
+<meta property="og:image" content="http://example.com/2020/11/25/%E5%9B%BE%E8%AE%BA/%E5%9B%BE%E8%AE%BA/7.png">
+<meta property="og:image" content="http://example.com/2020/11/25/%E5%9B%BE%E8%AE%BA/%E5%9B%BE%E8%AE%BA/8.png">
+<meta property="article:published_time" content="2020-11-25T10:19:51.000Z">
+<meta property="article:modified_time" content="2020-12-12T02:15:59.202Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="C++">
+<meta property="article:tag" content="数据结构">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2020/11/25/%E5%9B%BE%E8%AE%BA/%E5%9B%BE%E8%AE%BA/1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-图论" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/11/25/%E5%9B%BE%E8%AE%BA/" class="article-date">
+  <time class="dt-published" datetime="2020-11-25T10:19:51.000Z" itemprop="datePublished">2020-11-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      图论
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>系统性去总结图论的知识点，有关于邻接矩阵等多方面知识点，有利于我巩固专业课上的知识点，也是自己认真去了解各项学习任务的进度。</p>
+<span id="more"></span>
+<h2 id="图的表示，矩阵，邻接矩阵"><a href="#图的表示，矩阵，邻接矩阵" class="headerlink" title="图的表示，矩阵，邻接矩阵"></a>图的表示，矩阵，邻接矩阵</h2><ul>
+<li><p>用邻接矩阵表示顶点间的相邻关系</p>
+</li>
+<li><p>用一个顺序表来存储顶点信息<br>设G=(V,E)是具有n个顶点的图,以1和0来表示是否是E(G)的边</p>
+</li>
+<li><p>邻接表是图的一种顺序存储与链式存储结合的存储方法，类似于树的孩子链表表示法<br>构造邻接表，链表的方式，理解简单，效率不高</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> once</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">GraphKind</span>&#123;</span>DG,WDG,UDG,WUDG&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> VertexType,<span class="keyword">typename</span> InfoType&gt;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ALGraph</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">int</span> MAX_VERTEX_NUM = <span class="number">20</span>;</span><br><span class="line">	ALGraph(<span class="keyword">int</span> verNum, GraphKind _kind)</span><br><span class="line">		:vexnum(verNum), arcnum(<span class="number">0</span>), kind(_kind)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; MAX_VERTEX_NUM; i++)<span class="comment">//初始化</span></span><br><span class="line">			vertices[i].firstarc = <span class="literal">NULL</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">Create</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">switch</span> (kind)</span><br><span class="line">		&#123;</span><br><span class="line">		<span class="keyword">case</span> DG:<span class="comment">//构造一个有向图</span></span><br><span class="line">			CreateDG();</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> WDG:<span class="comment">//构造一个带权有向图</span></span><br><span class="line">			CreateWDG();</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> UDG:<span class="comment">//构造一个无向图</span></span><br><span class="line">			CreateUDG();</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> WUDG:<span class="comment">//构造一个带权无向图</span></span><br><span class="line">			CreateWUDG();</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">displayGraph</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; vexnum; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;第&quot;</span> &lt;&lt; i + <span class="number">1</span> &lt;&lt; <span class="string">&quot;个顶点是：&quot;</span> &lt;&lt; vertices[i].data</span><br><span class="line">				&lt;&lt; <span class="string">&quot;邻接表为：&quot;</span>;</span><br><span class="line">			ArcNode *arcNode = vertices[i].firstarc;</span><br><span class="line">			<span class="keyword">while</span> (arcNode)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;-&gt;&quot;</span> &lt;&lt; vertices[arcNode-&gt;adjvex].data</span><br><span class="line">					&lt;&lt; <span class="string">&quot;(&quot;</span> &lt;&lt; arcNode-&gt;info &lt;&lt; <span class="string">&quot;)&quot;</span>;</span><br><span class="line">				arcNode = arcNode-&gt;nextarc;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">InitVertics</span><span class="params">()</span><span class="comment">//初始化头列表</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;请输入每个顶点的关键字：&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		VertexType val;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; vexnum; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">cin</span> &gt;&gt; val;</span><br><span class="line">			vertices[i].data = val;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">insertArc</span><span class="params">(<span class="keyword">int</span> vHead, <span class="keyword">int</span> vTail, InfoType w)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		ArcNode *newArcNode = <span class="keyword">new</span> ArcNode;</span><br><span class="line">		newArcNode-&gt;adjvex = vTail;</span><br><span class="line">		newArcNode-&gt;nextarc = <span class="literal">NULL</span>;</span><br><span class="line">		newArcNode-&gt;info = w;</span><br><span class="line"></span><br><span class="line">		ArcNode *arcNode = vertices[vHead].firstarc;</span><br><span class="line">		<span class="keyword">if</span> (<span class="literal">NULL</span> == arcNode)</span><br><span class="line">			vertices[vHead].firstarc = newArcNode;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">while</span> (arcNode-&gt;nextarc != <span class="literal">NULL</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				arcNode = arcNode-&gt;nextarc;</span><br><span class="line">			&#125;</span><br><span class="line">			arcNode-&gt;nextarc = newArcNode;</span><br><span class="line">		&#125;</span><br><span class="line">		arcnum++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//构造一个有向图</span></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">CreateDG</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		InitVertics();</span><br><span class="line">		<span class="keyword">int</span> vhead, vtail;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;请依次输入每条边的开始顶点和结束顶点：&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">while</span> (<span class="built_in">cin</span> &gt;&gt; vhead &gt;&gt; vtail)</span><br><span class="line">		&#123;</span><br><span class="line">			insertArc(vhead, vtail, <span class="number">0</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//构造一个带权有向图</span></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">CreateWDG</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		InitVertics();</span><br><span class="line">		<span class="keyword">int</span> vhead, vtail;</span><br><span class="line">		InfoType w;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;请依次输入每条边的开始顶点和结束顶点和权值：&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">while</span> (<span class="built_in">cin</span> &gt;&gt; vhead &gt;&gt; vtail &gt;&gt; w)</span><br><span class="line">		&#123;</span><br><span class="line">			insertArc(vhead, vtail, w);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//构造一个无向图</span></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">CreateUDG</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		InitVertics();</span><br><span class="line">		<span class="keyword">int</span> vhead, vtail;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;请依次输入每条边的开始顶点和结束顶点：&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">while</span> (<span class="built_in">cin</span> &gt;&gt; vhead &gt;&gt; vtail)</span><br><span class="line">		&#123;</span><br><span class="line">			insertArc(vhead, vtail, <span class="number">0</span>);</span><br><span class="line">			insertArc(vtail, vhead, <span class="number">0</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//</span></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">CreateWUDG</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		InitVertics();</span><br><span class="line">		<span class="keyword">int</span> vhead, vtail;</span><br><span class="line">		InfoType w;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;请依次输入每条边的开始顶点和结束顶点和权值：&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">while</span> (<span class="built_in">cin</span> &gt;&gt; vhead &gt;&gt; vtail&gt;&gt;w)</span><br><span class="line">		&#123;</span><br><span class="line">			insertArc(vhead, vtail, w);</span><br><span class="line">			insertArc(vtail, vhead, w);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">ArcNode</span>//表结点</span></span><br><span class="line"><span class="class">	&#123;</span></span><br><span class="line">		<span class="keyword">int</span> adjvex;<span class="comment">//该弧所指向的顶点的位置</span></span><br><span class="line">		ArcNode *nextarc;<span class="comment">//指向下一条弧的指针</span></span><br><span class="line">		InfoType info;<span class="comment">//该弧相关信息的指针</span></span><br><span class="line">	&#125;;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">VNode</span>//头结点</span></span><br><span class="line"><span class="class">	&#123;</span></span><br><span class="line">		VertexType data;<span class="comment">//顶点信息</span></span><br><span class="line">		ArcNode *firstarc;<span class="comment">//指向第一条依附在该顶点的弧的指针</span></span><br><span class="line">	&#125;;</span><br><span class="line"></span><br><span class="line">	VNode vertices[MAX_VERTEX_NUM];<span class="comment">//头列表</span></span><br><span class="line">	<span class="keyword">int</span> vexnum; <span class="comment">//图的当前顶点数</span></span><br><span class="line">	<span class="keyword">int</span> arcnum;<span class="comment">//图的弧数</span></span><br><span class="line">	GraphKind kind;<span class="comment">//图的种类</span></span><br><span class="line">&#125;;</span><br><span class="line">                       <span class="comment">//邻接表结构体</span></span><br></pre></td></tr></table></figure>
+<p>邻接矩阵</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="comment">//枚举类型，图的种类 DG：有向图；WDG：带权值的有向图；</span></span><br><span class="line"><span class="comment">//UDG: 无向图；WUDG: 带权值的无向图</span></span><br><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">GraphKind</span>&#123;</span>DG,WDG,UDG,WUDG&#125;;</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> VertexType,<span class="keyword">typename</span> VRType,<span class="keyword">typename</span> InfoType&gt;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MGraph</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	MGraph(<span class="keyword">int</span> vexNum, GraphKind __kind) :vexnum(vexNum), arcnum(<span class="number">0</span>), kind(__kind)</span><br><span class="line">	&#123;</span><br><span class="line">		vvec = <span class="keyword">new</span> VertexType[vexnum];</span><br><span class="line">		arcs = <span class="keyword">new</span> ArcCell *[vexnum];<span class="comment">//二维数组动态分配（vexnum*vexnum)</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; vexnum; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			arcs[i] = <span class="keyword">new</span> ArcCell[vexnum];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">Create</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">switch</span> (kind)</span><br><span class="line">		&#123;</span><br><span class="line">		<span class="keyword">case</span> DG:</span><br><span class="line">			CreateDG();</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> WDG:</span><br><span class="line">			CreateWDG();</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> UDG:</span><br><span class="line">			CreateUDG();</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> WUDG:</span><br><span class="line">			CreateWUDG();</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">default</span>:</span><br><span class="line">			<span class="keyword">return</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">Init</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;请输入每个顶点的关键字：&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		VertexType val;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; vexnum; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">cin</span> &gt;&gt; val;</span><br><span class="line">			vvec[i] = val;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; vexnum; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			ArcCell ac;</span><br><span class="line">			ac.adj = <span class="number">0</span>;</span><br><span class="line">			ac.info = <span class="literal">NULL</span>;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; vexnum; j++)</span><br><span class="line">				arcs[i][j] = ac;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">CreateDG</span><span class="params">()</span><span class="comment">//构造一个有向图</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		Init();</span><br><span class="line">		<span class="keyword">int</span> vhead, vtail;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;请依次输入每条边的开始顶点和结束顶点：&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">while</span> (<span class="built_in">cin</span> &gt;&gt; vhead &gt;&gt; vtail)</span><br><span class="line">		&#123;</span><br><span class="line">			arcnum++;</span><br><span class="line">			arcs[vhead][vtail].adj = <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">CreateWDG</span><span class="params">()</span><span class="comment">//构造一个带权有向图</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		Init();</span><br><span class="line">		<span class="keyword">int</span> vhead, vtail;</span><br><span class="line">		InfoType w;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;请依次输入每条边的开始顶点和结束顶点和权值：&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">while</span> (<span class="built_in">cin</span> &gt;&gt; vhead &gt;&gt; vtail &gt;&gt; w)</span><br><span class="line">		&#123;</span><br><span class="line">			arcnum++;</span><br><span class="line">			arcs[vhead][vtail].adj = w;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">CreateUDG</span><span class="params">()</span><span class="comment">//构造一个无向图</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		Init();</span><br><span class="line">		<span class="keyword">int</span> vhead, vtail;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;请依次输入每条边的开始顶点和结束顶点：&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">while</span> (<span class="built_in">cin</span> &gt;&gt; vhead &gt;&gt; vtail)</span><br><span class="line">		&#123;</span><br><span class="line">			arcnum += <span class="number">2</span>;</span><br><span class="line">			arcs[vhead][vtail].adj = <span class="number">1</span>;</span><br><span class="line">			arcs[vtail][vhead].adj = <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">CreateWUDG</span><span class="params">()</span><span class="comment">//构造一个带权无向图</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		Init();</span><br><span class="line">		<span class="keyword">int</span> vhead, vtail;</span><br><span class="line">		InfoType w;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;请依次输入每条边的开始顶点和结束顶点和权值：&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">while</span> (<span class="built_in">cin</span> &gt;&gt; vhead &gt;&gt; vtail&gt;&gt;w)</span><br><span class="line">		&#123;</span><br><span class="line">			arcnum += <span class="number">2</span>;</span><br><span class="line">			arcs[vhead][vtail].adj = w;</span><br><span class="line">			arcs[vtail][vhead].adj = w;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">displayGraph</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;总共有&quot;</span> &lt;&lt; vexnum &lt;&lt; <span class="string">&quot;个顶点，&quot;</span> &lt;&lt; arcnum &lt;&lt; <span class="string">&quot;条边&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; vexnum; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;第&quot;</span> &lt;&lt; i + <span class="number">1</span> &lt;&lt; <span class="string">&quot;个顶点是：&quot;</span> &lt;&lt; vvec[i] &lt;&lt; <span class="string">&quot;相邻的边有：&quot;</span>;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; vexnum; j++)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">if</span> (arcs[i][j].adj != <span class="number">0</span>)</span><br><span class="line">					<span class="built_in">cout</span> &lt;&lt; vvec[j] &lt;&lt; <span class="string">&quot;(&quot;</span> &lt;&lt; arcs[i][j].adj &lt;&lt; <span class="string">&quot;)&quot;</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">ArcCell</span></span></span><br><span class="line"><span class="class">	&#123;</span></span><br><span class="line">		VRType adj;<span class="comment">//两连接点之间的权值</span></span><br><span class="line">		InfoType info;</span><br><span class="line">	&#125;;</span><br><span class="line">	VertexType *vvec;<span class="comment">//顶点向量</span></span><br><span class="line">	ArcCell **arcs;<span class="comment">//邻接矩阵</span></span><br><span class="line">	<span class="keyword">int</span> vexnum;<span class="comment">//图的结点个数</span></span><br><span class="line">	<span class="keyword">int</span> arcnum;<span class="comment">//图的边的个数</span></span><br><span class="line">	GraphKind kind;<span class="comment">//图的种类</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="dijkstra-迪杰斯特拉-算法-利用贪心算法）"><a href="#dijkstra-迪杰斯特拉-算法-利用贪心算法）" class="headerlink" title="dijkstra(迪杰斯特拉) 算法(利用贪心算法）"></a>dijkstra(迪杰斯特拉) 算法(利用贪心算法）</h2></li>
+<li><p>解释：首先把起点到所有点的距离存下来找个最短的，然后松弛一次再找出最短的。所谓松弛操作就是遍历一遍看通过刚刚找到的距离的最短点作为中转站会不会更近。<br><img src="%E5%9B%BE%E8%AE%BA/1.png"><br><img src="%E5%9B%BE%E8%AE%BA/2.png"></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Inf 0x3f3f3f3f</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">int</span> <span class="built_in">map</span>[<span class="number">1005</span>][<span class="number">1005</span>];</span><br><span class="line"> </span><br><span class="line"><span class="keyword">int</span> vis[<span class="number">1005</span>],dis[<span class="number">1005</span>];</span><br><span class="line"><span class="keyword">int</span> n,m;<span class="comment">//n个点，m条边</span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Init</span> <span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">memset</span>(<span class="built_in">map</span>,Inf,<span class="keyword">sizeof</span>(<span class="built_in">map</span>));</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">map</span>[i][i]=<span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Getmap</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> u,v,w;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> t=<span class="number">1</span>;t&lt;=m;t++)</span><br><span class="line">	&#123;</span><br><span class="line">	  	<span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d&quot;</span>,&amp;u,&amp;v,&amp;w);</span><br><span class="line">	  	<span class="keyword">if</span>(<span class="built_in">map</span>[u][v]&gt;w)</span><br><span class="line">		  &#123;</span><br><span class="line">		  <span class="built_in">map</span>[u][v]=w;</span><br><span class="line">		  <span class="built_in">map</span>[v][u]=w;</span><br><span class="line">	      &#125;</span><br><span class="line">	&#125;	</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Dijkstra</span><span class="params">(<span class="keyword">int</span> u)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">memset</span>(vis,<span class="number">0</span>,<span class="keyword">sizeof</span>(vis));</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> t=<span class="number">1</span>;t&lt;=n;t++)</span><br><span class="line">	&#123;</span><br><span class="line">		dis[t]=<span class="built_in">map</span>[u][t];</span><br><span class="line">	&#125;</span><br><span class="line">	vis[u]=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> t=<span class="number">1</span>;t&lt;n;t++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> minn=Inf,temp;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span>(!vis[i]&amp;&amp;dis[i]&lt;minn)</span><br><span class="line">			&#123;</span><br><span class="line">				minn=dis[i];</span><br><span class="line">				temp=i;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		vis[temp]=<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span>(<span class="built_in">map</span>[temp][i]+dis[temp]&lt;dis[i])</span><br><span class="line">			&#123;</span><br><span class="line">				dis[i]=<span class="built_in">map</span>[temp][i]+dis[temp];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;m,&amp;n);</span><br><span class="line">	Init();</span><br><span class="line">	Getmap();</span><br><span class="line">	Dijkstra(n);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,dis[<span class="number">1</span>]);</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/cliukai/article/details/90769638">参考文献</a></p>
+<h2 id="prim-普里姆算法"><a href="#prim-普里姆算法" class="headerlink" title="prim(普里姆算法)"></a>prim(普里姆算法)</h2></li>
+</ul>
+<ol>
+<li>输入：一个加权连通图，其中顶点集合为V，边集合为E；</li>
+<li>初始化：Vnew = {x}，其中x为集合V中的任一节点（起始点），Enew = {},为空；</li>
+<li>重复下列操作，直到Vnew = V：</li>
+</ol>
+<p>a.在集合E中选取权值最小的边&lt;u, v&gt;，其中u为集合Vnew中的元素，而v不在Vnew集合当中，并且v∈V（如果存在有多条满足前述条件即具有相同权值的边，则可任意选取其中之一）；</p>
+<p>b.将v加入集合Vnew中，将&lt;u, v&gt;边加入集合Enew中；<br>4. 输出：使用集合Vnew和Enew来描述所得到的最小生成树。<br>图例：<br><img src="%E5%9B%BE%E8%AE%BA/3.png"><br><img src="%E5%9B%BE%E8%AE%BA/4.png"><br><img src="%E5%9B%BE%E8%AE%BA/5.png"></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/ggzhangxiaochao/p/9070873.html">参考文献</a></p>
+<h2 id="kruskal-克鲁斯卡尔算法"><a href="#kruskal-克鲁斯卡尔算法" class="headerlink" title="kruskal(克鲁斯卡尔算法)"></a>kruskal(克鲁斯卡尔算法)</h2><ol>
+<li><p>记Graph中有v个顶点，e个边</p>
+</li>
+<li><p>新建图Graphnew，Graphnew中拥有原图中相同的e个顶点，但没有边</p>
+</li>
+<li><p>将原图Graph中所有e个边按权值从小到大排序</p>
+</li>
+<li><p>循环：从权值最小的边开始遍历每条边 直至图Graph中所有的节点都在同一个连通分量中</p>
+<pre><code>         if 这条边连接的两个节点于图Graphnew中不在同一个连通分量中
+
+                                  添加这条边到图Graphnew中
+</code></pre>
+<p><img src="%E5%9B%BE%E8%AE%BA/6.png"><br><img src="%E5%9B%BE%E8%AE%BA/7.png"><br>科鲁斯卡算法代码:主要是先排序权值，然后再选择最短的权值，禁止形成回路，判断是否两个端点是否同色</p>
+</li>
+</ol>
+<h2 id="floyd-弗洛伊德算法、插点法"><a href="#floyd-弗洛伊德算法、插点法" class="headerlink" title="floyd(弗洛伊德算法、插点法)"></a>floyd(弗洛伊德算法、插点法)</h2><ul>
+<li>floyd算法是解决给定的加权图中顶点间的最短路径的一种算法，是一种动态规划算法，稠密图效果最佳<br><img src="%E5%9B%BE%E8%AE%BA/8.png"></li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/ytuyzh/article/details/88617987">参考文献</a></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ol>
+<li>dijkstra(迪杰斯特拉算法) 时间复杂度O(n2)，依此遍历所有方向，然后获取最短路径</li>
+<li>prim(普里姆算法) 时间复杂度O(n2)，先确定一个点，然后去寻找最短路径的点，然后根据确定的点再重复去找最短的点</li>
+<li>kruskal(克鲁斯卡尔算法) 时间复杂度O(n)，先确定图中权重最小的，然后再找下一个权重小的</li>
+<li>floyd(弗洛伊德算法) 时间复杂度O(n3)，分别顶点作为中介点，不断更新矩阵</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/11/25/%E5%9B%BE%E8%AE%BA/" data-id="cklovdmde000uc4ot7nzedvd4" data-title="图论" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/11/26/Puzzeld/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          关于C++疑惑和解答
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/11/24/%E6%8E%92%E5%BA%8F/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">排序</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/2020/" rel="tag">2020</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/androidstudio/" rel="tag">androidstudio</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/flask/" rel="tag">flask</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%8F%E9%94%8B%E5%B9%B4%E5%BA%A6%E6%8A%A5%E5%91%8A/" rel="tag">小锋年度报告</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%8F%E9%A1%B9%E7%9B%AE/" rel="tag">小项目</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%80%E5%8F%91%E7%99%BB%E5%BD%95%E7%95%8C%E9%9D%A2/" rel="tag">开发登录界面</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%8Cleetcode/" rel="tag">数据结构，leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AF%95/" rel="tag">笔试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9A%8F%E7%AC%94/" rel="tag">随笔</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AF%95/" rel="tag">面试笔试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE/" rel="tag">项目</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/2020/" style="font-size: 10px;">2020</a> <a href="/tags/C/" style="font-size: 20px;">C++</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/androidstudio/" style="font-size: 10px;">androidstudio</a> <a href="/tags/flask/" style="font-size: 10px;">flask</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/leetcode/" style="font-size: 12.5px;">leetcode</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/python/" style="font-size: 12.5px;">python</a> <a href="/tags/%E5%B0%8F%E9%94%8B%E5%B9%B4%E5%BA%A6%E6%8A%A5%E5%91%8A/" style="font-size: 10px;">小锋年度报告</a> <a href="/tags/%E5%B0%8F%E9%A1%B9%E7%9B%AE/" style="font-size: 12.5px;">小项目</a> <a href="/tags/%E5%BC%80%E5%8F%91%E7%99%BB%E5%BD%95%E7%95%8C%E9%9D%A2/" style="font-size: 10px;">开发登录界面</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">操作系统</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 17.5px;">数据结构</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%8Cleetcode/" style="font-size: 10px;">数据结构，leetcode</a> <a href="/tags/%E7%AC%94%E8%AF%95/" style="font-size: 15px;">笔试</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 15px;">计算机网络</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 10px;">随笔</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 10px;">面试</a> <a href="/tags/%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AF%95/" style="font-size: 10px;">面试笔试</a> <a href="/tags/%E9%A1%B9%E7%9B%AE/" style="font-size: 10px;">项目</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/02/28/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/27/%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AF%950227/">笔试0227</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/26/Linux/">Linux教程</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/26/git/">Git教程</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/25/%E9%9D%A2%E7%BB%8F0225/">面经0225</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

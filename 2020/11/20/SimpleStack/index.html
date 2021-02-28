@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>单调栈去除重复字符 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="根据单调栈的特性去解决一些问题，结合leetcode">
+<meta property="og:type" content="article">
+<meta property="og:title" content="单调栈去除重复字符">
+<meta property="og:url" content="http://example.com/2020/11/20/SimpleStack/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="根据单调栈的特性去解决一些问题，结合leetcode">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/SimpleStack/1.png">
+<meta property="og:image" content="http://example.com/SimpleStack/2.png">
+<meta property="og:image" content="http://example.com/SimpleStack/3.png">
+<meta property="og:image" content="http://example.com/SimpleStack/3.png">
+<meta property="og:image" content="http://example.com/SimpleStack/1.png">
+<meta property="article:published_time" content="2020-11-20T07:53:34.000Z">
+<meta property="article:modified_time" content="2020-12-12T02:22:49.346Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="数据结构">
+<meta property="article:tag" content="leetcode">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/SimpleStack/1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-SimpleStack" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/11/20/SimpleStack/" class="article-date">
+  <time class="dt-published" datetime="2020-11-20T07:53:34.000Z" itemprop="datePublished">2020-11-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      单调栈去除重复字符
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>根据单调栈的特性去解决一些问题，结合leetcode</p>
+<span id="more"></span>
+
+<h1 id="利用单调栈的特性去除重复字符"><a href="#利用单调栈的特性去除重复字符" class="headerlink" title="利用单调栈的特性去除重复字符"></a>利用单调栈的特性去除重复字符</h1><h2 id="去除重复字符"><a href="#去除重复字符" class="headerlink" title="去除重复字符"></a>去除重复字符</h2><p><img src="/SimpleStack/1.png"></p>
+<h3 id="图解"><a href="#图解" class="headerlink" title="图解"></a>图解</h3><p><img src="/SimpleStack/2.png"></p>
+<p>文字描述：</p>
+<p>第 1 步：读到 c，入栈，此时栈中元素 [c]；</p>
+<p>第 2 步：读到 b，b 比之前 a 小，c 在以后还会出现，因此 c 出栈，b 入栈，此时栈中元素 [b]；</p>
+<p>第 3 步：读到 a，a 比之前 b 小，b 在以后还会出现，因此 b 出栈，a 入栈，此时栈中元素 [a]；</p>
+<p>第 4 步：读到 c，c 比之前 a 大，直接让 c 入栈，此时栈中元素 [a, c]；</p>
+<p>第 5 步：读到 d，d 比之前 d 大，直接让 d 入栈，此时栈中元素 [a, c, d]；</p>
+<p>第 6 步：读到 c，这里要注意：此时栈中已经有 c 了，此时栈中元素构成的字符顺序就是最小的字典序，不可能舍弃之前的 c，而用现在的读到的 c，因此这个 c 不需要，直接跳过；</p>
+<p>第 7 步：读到 b，b 比之前的 d 小，但是，后面不会再出现 d 了，因此 b 就应该放在这个位置，因此让 b 入栈，此时栈中元素 [a, c, d, b]；</p>
+<p>第 8 步：读到 c，同第 6 步，这个 c 我们不需要。</p>
+<h3 id="上代码"><a href="#上代码" class="headerlink" title="上代码"></a>上代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">removeDuplicateLetters</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">size_t</span> size = s.size(); </span><br><span class="line">        <span class="comment">//sise_t它是一个与机器相关的unsigned类型，其大小足以保证存储内存中对象的大小。</span></span><br><span class="line">        <span class="keyword">if</span>(size &lt; <span class="number">2</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> s;</span><br><span class="line">        &#125; <span class="comment">//简单字符串，直接判断</span></span><br><span class="line">        <span class="keyword">bool</span> used[<span class="number">26</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">bool</span> &amp;i:used)&#123;</span><br><span class="line">            i = <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> lastAppearIndex[<span class="number">26</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size;i++)&#123;</span><br><span class="line">            lastAppearIndex[s[i] - <span class="string">&#x27;a&#x27;</span>] = i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//这个是用来确定，字符串最后的位置</span></span><br><span class="line">        <span class="built_in">stack</span>&lt;<span class="keyword">char</span>&gt; st;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; size;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(used[s[i] - <span class="string">&#x27;a&#x27;</span>])&#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">while</span>(!st.empty() &amp;&amp; st.top() &gt; s[i] &amp;&amp; lastAppearIndex[st.top() - <span class="string">&#x27;a&#x27;</span>] &gt;= i)&#123;</span><br><span class="line">                <span class="keyword">char</span> top = st.top();</span><br><span class="line">                st.pop();</span><br><span class="line">                used[top - <span class="string">&#x27;a&#x27;</span>] = <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            st.push(s[i]);</span><br><span class="line">            used[s[i] - <span class="string">&#x27;a&#x27;</span>] = <span class="literal">true</span>;   <span class="comment">//标注已经使用</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">string</span> res;</span><br><span class="line">        <span class="keyword">while</span>(!st.empty())&#123;</span><br><span class="line">            res += st.top();</span><br><span class="line">            st.pop();</span><br><span class="line">        &#125;</span><br><span class="line">        reverse(res.begin(),res.end());<span class="comment">//反转字符串</span></span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;    </span><br></pre></td></tr></table></figure>
+<h2 id="拼接最大数"><a href="#拼接最大数" class="headerlink" title="拼接最大数"></a>拼接最大数</h2><p><img src="/SimpleStack/3.png"></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">maxNumber</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums1, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums2, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">res</span><span class="params">(k, <span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="keyword">int</span> n = nums1.size(), m = nums2.size();</span><br><span class="line">        <span class="comment">// 假设有最大子序列中有s个元素来自nums1，对所有可能的s值遍历</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> s=max(<span class="number">0</span>, k-m); s&lt;=min(k, n); s++)&#123;</span><br><span class="line">            <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; temp;</span><br><span class="line">            <span class="keyword">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>;</span><br><span class="line">            <span class="comment">// nums1中长度为s的最大子序列</span></span><br><span class="line">            <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; temp1 = maxKsequence(nums1, s);</span><br><span class="line">            <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; temp2 = maxKsequence(nums2, k-s);</span><br><span class="line">            <span class="keyword">auto</span> iter1 = temp1.begin(), iter2 = temp2.begin();</span><br><span class="line">            <span class="keyword">while</span> (iter1 != temp1.end() || iter2 != temp2.end())&#123;</span><br><span class="line">                temp.push_back(lexicographical_compare(iter1, temp1.end(), iter2, temp2.end()) ? *iter2++ : *iter1++);<span class="comment">//lexicographical_compare是C++ STL 泛型算法函数：用于按字典序比较两个序列。</span></span><br><span class="line">            &#125;</span><br><span class="line">            res = lexicographical_compare(res.begin(), res.end(), temp.begin(), temp.end()) ? temp : res;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 求数组v的长度为k的最大子序列</span></span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">maxKsequence</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v, <span class="keyword">int</span> k)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = v.size();</span><br><span class="line">        <span class="keyword">if</span> (n &lt;= k)</span><br><span class="line">            <span class="keyword">return</span> v;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; res;</span><br><span class="line">        <span class="keyword">int</span> pop = n-k;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;n; i++)&#123;</span><br><span class="line">            <span class="keyword">while</span>(!res.empty() &amp;&amp; v[i]&gt;res.back() &amp;&amp; pop--&gt;<span class="number">0</span>)</span><br><span class="line">                res.pop_back();</span><br><span class="line">            res.push_back(v[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        res.resize(k);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>这个时候我就在想，vector的功能不是和stack类型吗？甚至可以说一样</p>
+<h3 id="那么为什么设计C-语言的大佬，要设计除stack呢？"><a href="#那么为什么设计C-语言的大佬，要设计除stack呢？" class="headerlink" title="那么为什么设计C++语言的大佬，要设计除stack呢？"></a>那么为什么设计C++语言的大佬，要设计除stack呢？</h3><ul>
+<li><p>std::vector 是容器，而 std::stack 是容器适配器。</p>
+</li>
+<li><p>std::stack只提供和堆栈相关的接口，其中主要是 push()、emplace()、pop()、top()和empty()。使用 std::stack时只需关心这些接口，而非内在用了哪个具体容器。改变容器类型也不需要修改调用方的代码。这个设计应该可说是乎合 SOLID 中的 I ──接口隔离原则（interface segregation principle）。</p>
+</li>
+<li><p>std::stack 可适配的标准容器有 std::vector、std::list、std::deque，而 std::deque 是缺省的，因为它提供 O(1) 的push_back()，而 std::vector::push_back()是均摊（amortized） O(1)。</p>
+<h2 id="移掉K位字数"><a href="#移掉K位字数" class="headerlink" title="移掉K位字数"></a>移掉K位字数</h2></li>
+</ul>
+<p><img src="/SimpleStack/3.png"></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">removeKdigits</span><span class="params">(<span class="built_in">string</span> num, <span class="keyword">int</span> k)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">	    <span class="built_in">string</span> result;</span><br><span class="line">	    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; num.size(); i++)</span><br><span class="line">	    &#123;</span><br><span class="line">		    <span class="keyword">while</span> (result.size() &amp;&amp; k&amp;&amp;result.back() &gt; num[i])<span class="comment">//字符也有stack的特性</span></span><br><span class="line">		    &#123;</span><br><span class="line">		    	result.pop_back();</span><br><span class="line">		    	k--;</span><br><span class="line">		    &#125;</span><br><span class="line">		    <span class="keyword">if</span> (result.size() == <span class="number">0</span> &amp;&amp; num[i] == <span class="string">&#x27;0&#x27;</span>)</span><br><span class="line">			    <span class="keyword">continue</span>;</span><br><span class="line">		    result+=num[i];</span><br><span class="line">	    &#125;</span><br><span class="line">        <span class="keyword">while</span> (k &gt; <span class="number">0</span> &amp;&amp; !result.empty())</span><br><span class="line">	    &#123;</span><br><span class="line">		    result.pop_back();</span><br><span class="line">		    k--;</span><br><span class="line">	    &#125;</span><br><span class="line">	    <span class="keyword">return</span> result == <span class="string">&quot;&quot;</span> ? <span class="string">&quot;0&quot;</span> : result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>这个我个人感觉主要是在如何去处理0，毕竟0很特殊</p>
+<h2 id="不同字符的最小子序列"><a href="#不同字符的最小子序列" class="headerlink" title="不同字符的最小子序列"></a>不同字符的最小子序列</h2><p><img src="/SimpleStack/1.png"></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">smallestSubsequence</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = s.size();</span><br><span class="line">        <span class="keyword">if</span>(n &lt; <span class="number">2</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> s;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">bool</span> used[<span class="number">26</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; <span class="number">26</span>;++i)&#123;</span><br><span class="line">            used[i] = <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> lastword[<span class="number">26</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;++i)&#123;</span><br><span class="line">            lastword[s[i] - <span class="string">&#x27;a&#x27;</span>] = i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">stack</span>&lt;<span class="keyword">char</span>&gt; able;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;++i)&#123;</span><br><span class="line">            <span class="keyword">if</span>(used[s[i] - <span class="string">&#x27;a&#x27;</span>])&#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">while</span>(!able.empty() &amp;&amp; s[i] &lt; able.top() &amp;&amp; lastword[able.top() - <span class="string">&#x27;a&#x27;</span>] &gt;= i)&#123;</span><br><span class="line">                used[able.top() - <span class="string">&#x27;a&#x27;</span>] = <span class="literal">false</span>;</span><br><span class="line">                able.pop();</span><br><span class="line">            &#125;</span><br><span class="line">            able.push(s[i]);</span><br><span class="line">            used[s[i] - <span class="string">&#x27;a&#x27;</span>] = <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">string</span> result;</span><br><span class="line">        <span class="keyword">while</span>(!able.empty())&#123;</span><br><span class="line">            result.push_back(able.top());</span><br><span class="line">            able.pop();</span><br><span class="line">        &#125;</span><br><span class="line">        reverse(result.begin(),result.end());</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>这题本质就是本文的第一题，亲自手打，然后能够得到结果，确实挺不错的。<br>这些题目我感觉只有第二题是比较难的，一是不好去理解，二是利用归并思想</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/11/20/SimpleStack/" data-id="cklovdmcy000cc4otf64n03l5" data-title="单调栈去除重复字符" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/11/20/TreeNode/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          史上最全遍历二叉树详解（C++模板）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/11/19/hui/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">回溯算法</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/2020/" rel="tag">2020</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/androidstudio/" rel="tag">androidstudio</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/flask/" rel="tag">flask</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%8F%E9%94%8B%E5%B9%B4%E5%BA%A6%E6%8A%A5%E5%91%8A/" rel="tag">小锋年度报告</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%8F%E9%A1%B9%E7%9B%AE/" rel="tag">小项目</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%80%E5%8F%91%E7%99%BB%E5%BD%95%E7%95%8C%E9%9D%A2/" rel="tag">开发登录界面</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%8Cleetcode/" rel="tag">数据结构，leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AF%95/" rel="tag">笔试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9A%8F%E7%AC%94/" rel="tag">随笔</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AF%95/" rel="tag">面试笔试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE/" rel="tag">项目</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/2020/" style="font-size: 10px;">2020</a> <a href="/tags/C/" style="font-size: 20px;">C++</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/androidstudio/" style="font-size: 10px;">androidstudio</a> <a href="/tags/flask/" style="font-size: 10px;">flask</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/leetcode/" style="font-size: 12.5px;">leetcode</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/python/" style="font-size: 12.5px;">python</a> <a href="/tags/%E5%B0%8F%E9%94%8B%E5%B9%B4%E5%BA%A6%E6%8A%A5%E5%91%8A/" style="font-size: 10px;">小锋年度报告</a> <a href="/tags/%E5%B0%8F%E9%A1%B9%E7%9B%AE/" style="font-size: 12.5px;">小项目</a> <a href="/tags/%E5%BC%80%E5%8F%91%E7%99%BB%E5%BD%95%E7%95%8C%E9%9D%A2/" style="font-size: 10px;">开发登录界面</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">操作系统</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 17.5px;">数据结构</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%8Cleetcode/" style="font-size: 10px;">数据结构，leetcode</a> <a href="/tags/%E7%AC%94%E8%AF%95/" style="font-size: 15px;">笔试</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 15px;">计算机网络</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 10px;">随笔</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 10px;">面试</a> <a href="/tags/%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AF%95/" style="font-size: 10px;">面试笔试</a> <a href="/tags/%E9%A1%B9%E7%9B%AE/" style="font-size: 10px;">项目</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/02/28/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/27/%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AF%950227/">笔试0227</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/26/Linux/">Linux教程</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/26/git/">Git教程</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/25/%E9%9D%A2%E7%BB%8F0225/">面经0225</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

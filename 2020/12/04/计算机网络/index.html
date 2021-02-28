@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>http的发展 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="httphttp的发展 http&#x2F;0.9时代 纯文本格式、‘get’、响应之后连接就断了 http 1.0时代 增加head、post等新方法，增加响应状态码，引入头部，申请http版本号，引入content-Type http 1.1时代 新增连接管理，允许持久连接、新增缓存控制和管理，允许响应数据分块，有利传输大文件 http 2时代 二进制协议，支持一个TCP连接发起多请求，利用hpack压">
+<meta property="og:type" content="article">
+<meta property="og:title" content="http的发展">
+<meta property="og:url" content="http://example.com/2020/12/04/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="httphttp的发展 http&#x2F;0.9时代 纯文本格式、‘get’、响应之后连接就断了 http 1.0时代 增加head、post等新方法，增加响应状态码，引入头部，申请http版本号，引入content-Type http 1.1时代 新增连接管理，允许持久连接、新增缓存控制和管理，允许响应数据分块，有利传输大文件 http 2时代 二进制协议，支持一个TCP连接发起多请求，利用hpack压">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2020/12/04/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/1.png">
+<meta property="og:image" content="http://example.com/2020/12/04/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/2.png">
+<meta property="og:image" content="http://example.com/2020/12/04/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/3.png">
+<meta property="og:image" content="http://example.com/2020/12/04/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/4.png">
+<meta property="article:published_time" content="2020-12-04T07:34:48.000Z">
+<meta property="article:modified_time" content="2020-12-12T02:08:28.413Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="计算机网络">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2020/12/04/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-计算机网络" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/12/04/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="article-date">
+  <time class="dt-published" datetime="2020-12-04T07:34:48.000Z" itemprop="datePublished">2020-12-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      http的发展
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="http"><a href="#http" class="headerlink" title="http"></a>http</h2><h3 id="http的发展"><a href="#http的发展" class="headerlink" title="http的发展"></a>http的发展</h3><ul>
+<li>http/0.9时代 纯文本格式、‘get’、响应之后连接就断了</li>
+<li>http 1.0时代 增加head、post等新方法，增加响应状态码，引入头部，申请http版本号，引入content-Type</li>
+<li>http 1.1时代 新增连接管理，允许持久连接、新增缓存控制和管理，允许响应数据分块，有利传输大文件</li>
+<li>http 2时代 二进制协议，支持一个TCP连接发起多请求，利用hpack压缩头部，减少数据传输量，允许服务端主动推送数据</li>
+<li>http 3时代 quic协议实现自己的丢包重传和拥塞控制<span id="more"></span> 
+<h3 id="http2-0的多路复用和http1-x中的长连接复用有啥区别？"><a href="#http2-0的多路复用和http1-x中的长连接复用有啥区别？" class="headerlink" title="http2.0的多路复用和http1.x中的长连接复用有啥区别？"></a>http2.0的多路复用和http1.x中的长连接复用有啥区别？</h3><img src="%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/1.png"><br><img src="%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/2.png"></li>
+</ul>
+<h3 id="为什么要头部压缩"><a href="#为什么要头部压缩" class="headerlink" title="为什么要头部压缩"></a>为什么要头部压缩</h3><ul>
+<li>减少多次请求，从而加快资源加载速度。<strong>http2.0可以维护一个字典，差量更新http头部，大大降低因头部传输产生的流量</strong></li>
+</ul>
+<h3 id="http多路复用有多好"><a href="#http多路复用有多好" class="headerlink" title="http多路复用有多好"></a>http多路复用有多好</h3><ul>
+<li><p>http的性能优化的关键并不在于高宽带，而是低延迟。</p>
+</li>
+<li><p>TCP连接会随时间进行自我调节，如果数据成功传输，会随着时间的推移提高传输的速度。这种被称为TCP慢启动</p>
+</li>
+<li><p>http/2通过让所有的数据流共用同一个连接，可以更加有效地使用TCP连接，让高宽带也能真正地服务于http的性能提升</p>
+<h3 id="http和https的区别"><a href="#http和https的区别" class="headerlink" title="http和https的区别"></a>http和https的区别</h3><h4 id="http协议的缺点"><a href="#http协议的缺点" class="headerlink" title="http协议的缺点"></a>http协议的缺点</h4></li>
+<li><p>通信使用明文，内容可能被窃听</p>
+</li>
+<li><p>不验证通信方身份，有可能遭遇伪装</p>
+</li>
+<li><p>无法证明报文的完整性，有可能已遭篡改</p>
+<h4 id="https的好处"><a href="#https的好处" class="headerlink" title="https的好处"></a>https的好处</h4></li>
+<li><p>https时在http协议基础上加入加密处理和认证机制以及完整性保护，即http+加密+认证+完整性保护</p>
+</li>
+<li><p>https是具有安全性的ssl加密传输协议</p>
+</li>
+<li><p>http协议是运行在TCP之上，https运行在ssl/tls之上。</p>
+</li>
+<li><p>http网络端口80、https是443</p>
+</li>
+<li><p>https协议是由ssl+http协议构建的可进行加密传输、身份认证的网络协议。<br><img src="%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/3.png"></p>
+<h4 id="https的缺点"><a href="#https的缺点" class="headerlink" title="https的缺点"></a>https的缺点</h4></li>
+<li><p>https是协议握手阶段比较费时，会使得页面加载时间延长近50%</p>
+</li>
+<li><p>https连接缓存不如http高效，会增加数据开销和功效</p>
+</li>
+<li><p>ssl证书需要钱，功能越强大的证书费用越高。</p>
+</li>
+<li><p>ssl证书通常需要绑定IP，不能在同一个IP上绑定多个域名。</p>
+</li>
+<li><p>https协议加密范围比较有限。</p>
+<h4 id="SSL与TLS的区别"><a href="#SSL与TLS的区别" class="headerlink" title="SSL与TLS的区别"></a>SSL与TLS的区别</h4></li>
+<li><p>SSL：(secure socket layer,安全套接字)位于可靠的面向连接的网络层协议和应用层协议之间的一种协议层。互相认证、使用数字签名确保完整性。</p>
+</li>
+<li><p>TLS：(transport layer security,传输层安全协议)用于两个应用程序之间提供保密性和数据完整性</p>
+</li>
+<li><p>TLS的主要目的是使得SSL更安全，并使协议的规范更精准和完善。</p>
+</li>
+</ul>
+<h4 id="如何去优化https的速度"><a href="#如何去优化https的速度" class="headerlink" title="如何去优化https的速度"></a>如何去优化https的速度</h4><ul>
+<li>hsts重定向技术：自动将http转化为https进行访问，省去301跳转的出现，缩短访问时间，阻止基于ssl strip的中间人攻击</li>
+<li>TLS握手优化：采用False Start技术，在TLS握手前，就开始发送请求数据。缩短数据传输时间</li>
+<li>Session Identifier（会话标识符）复用:利用会话的ID，减少握手的时间，减少交互时间</li>
+<li>开启OSCP stapling，提升TLS握手效率：服务器模拟浏览器向CA发起请求，然后将带有CA机构签名的OCSP响应保存到本地，在发给客户端</li>
+<li>完全向前加密PFS，保护用户数据，预防私钥泄露：长期使用的主密钥泄露不会导致过去的会话密钥泄露</li>
+</ul>
+<p><img src="%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/4.png"><br><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000025145815">参考文献</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/fristjcjdncg/article/details/108208915">参考文献</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_35642036/article/details/82788421?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.control&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.control">参考文献</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/12/04/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" data-id="cklovdmeq002rc4othxax0odi" data-title="http的发展" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/12/07/C-%E9%9D%A2%E8%AF%95%E5%B0%8F%E9%A2%98%E4%BA%8C/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          C++面试小题二
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/12/01/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">动态规划</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/2020/" rel="tag">2020</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/androidstudio/" rel="tag">androidstudio</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/flask/" rel="tag">flask</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%8F%E9%94%8B%E5%B9%B4%E5%BA%A6%E6%8A%A5%E5%91%8A/" rel="tag">小锋年度报告</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%8F%E9%A1%B9%E7%9B%AE/" rel="tag">小项目</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%80%E5%8F%91%E7%99%BB%E5%BD%95%E7%95%8C%E9%9D%A2/" rel="tag">开发登录界面</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%8Cleetcode/" rel="tag">数据结构，leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AF%95/" rel="tag">笔试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9A%8F%E7%AC%94/" rel="tag">随笔</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AF%95/" rel="tag">面试笔试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE/" rel="tag">项目</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/2020/" style="font-size: 10px;">2020</a> <a href="/tags/C/" style="font-size: 20px;">C++</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/androidstudio/" style="font-size: 10px;">androidstudio</a> <a href="/tags/flask/" style="font-size: 10px;">flask</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/leetcode/" style="font-size: 12.5px;">leetcode</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/python/" style="font-size: 12.5px;">python</a> <a href="/tags/%E5%B0%8F%E9%94%8B%E5%B9%B4%E5%BA%A6%E6%8A%A5%E5%91%8A/" style="font-size: 10px;">小锋年度报告</a> <a href="/tags/%E5%B0%8F%E9%A1%B9%E7%9B%AE/" style="font-size: 12.5px;">小项目</a> <a href="/tags/%E5%BC%80%E5%8F%91%E7%99%BB%E5%BD%95%E7%95%8C%E9%9D%A2/" style="font-size: 10px;">开发登录界面</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">操作系统</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 17.5px;">数据结构</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%8Cleetcode/" style="font-size: 10px;">数据结构，leetcode</a> <a href="/tags/%E7%AC%94%E8%AF%95/" style="font-size: 15px;">笔试</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 15px;">计算机网络</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 10px;">随笔</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 10px;">面试</a> <a href="/tags/%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AF%95/" style="font-size: 10px;">面试笔试</a> <a href="/tags/%E9%A1%B9%E7%9B%AE/" style="font-size: 10px;">项目</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/02/28/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/27/%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AF%950227/">笔试0227</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/26/Linux/">Linux教程</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/26/git/">Git教程</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/25/%E9%9D%A2%E7%BB%8F0225/">面经0225</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
